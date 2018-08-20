@@ -5,13 +5,27 @@ public class NucleotideCount
 {
     public NucleotideCount(string sequence)
     {
-    }
-
-    public IDictionary<char, int> NucleotideCounts
-    {
-        get
+        NucleotideCounts = new Dictionary<char, int>
         {
-            throw new NotImplementedException("You need to implement this function.");
+            ['A'] = 0,
+            ['C'] = 0,
+            ['G'] = 0,
+            ['T'] = 0
+        };
+
+        var seqArray = sequence.ToCharArray();
+        foreach (var seq in seqArray)
+        {
+            if (NucleotideCounts.ContainsKey(seq))
+            {
+                NucleotideCounts[seq] = NucleotideCounts[seq] + 1;
+            }
+            else
+            {
+                throw new ArgumentException();
+            }
         }
     }
+
+    public IDictionary<char, int> NucleotideCounts { get; set; }
 }
