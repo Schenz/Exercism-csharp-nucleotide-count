@@ -13,12 +13,11 @@ public class NucleotideCount
             ['T'] = 0
         };
 
-        var seqArray = sequence.ToCharArray();
-        foreach (var seq in seqArray)
+        foreach (var seq in sequence)
         {
             if (NucleotideCounts.ContainsKey(seq))
             {
-                NucleotideCounts[seq] = NucleotideCounts[seq] + 1;
+                NucleotideCounts[seq]++;
             }
             else
             {
